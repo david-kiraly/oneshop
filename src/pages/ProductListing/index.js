@@ -1,5 +1,6 @@
 import React from 'react';
-import products from '../data/products';
+import products from '../../data/products';
+import Link from 'next/link';
 
 const ProductList = () => {
   return (
@@ -7,7 +8,11 @@ const ProductList = () => {
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
         {products.map((product) => (
           <div key={product.id} className="bg-white rounded-lg p-4 shadow">
-            <h2 className="text-xl font-bold mb-2">{product.name}</h2>
+            <h2 className="text-xl font-bold mb-2">
+                <Link href="/ProductDetail">
+                    {product.name}
+                </Link>
+            </h2>
             <p className="text-gray-700 mb-2">Price: ${product.price}</p>
             {product.salePrice && (
               <p className="text-red-600 mb-2">Sale Price: ${product.salePrice}</p>
